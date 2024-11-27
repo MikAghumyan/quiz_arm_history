@@ -8,7 +8,7 @@ if len(sys.argv) == 2:
     questions_filename = sys.argv[1]
 
 try:
-    with open(f"/home/mika/quiz_arm_history/{questions_filename}", 'r', encoding='utf-8') as file:
+    with open(f"./{questions_filename}", 'r', encoding='utf-8') as file:
         questions = json.load(file)
 except FileNotFoundError:
     print("Չհաջողվեց բեռնել հարցերը։")
