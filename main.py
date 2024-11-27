@@ -26,9 +26,13 @@ print(f"- Ընդհանուր կա {len(questions)} հարց։")
 time.sleep(1)
 print(f"- Յուրաքանչյուր թիմին տրվում է {len(questions)/2}-ական հարց։")
 time.sleep(1)
-print("Սեղմեք Enter սկսելու համար։")
-input()
-print("Գնացինք․․․")
+print("- Ճիշտ պատասխանի համար թիմը ստանում է 10 միավոր։")
+time.sleep(1)
+print("- Կհաղթի այն թիմը, որը կունենա ավելի շատ միավոր։")
+time.sleep(1)
+input("\nՍեղմեք Enter սկսելու համար։")
+print("\nԳնացինք․․․\n")
+time.sleep(1)
 
 team1 = input("Խաղացող 1-ի անունը: ")
 team2 = input("Խաղացող 2-ի անունը: ")
@@ -41,9 +45,16 @@ for i in range(len(questions)):
     print(questions[i]["question"])
 
     for ans_i in range(len(questions[i]["answers"])):
-        print(f"{ans_i+1}. {questions[i]['answers'][ans_i]}")
+        print(f"({ans_i+1}) {questions[i]['answers'][ans_i]}")
 
-    answer = int(input("Պատասխանը գրեք թվով: ")) - 1
+    while True:
+        try:
+            answer = int(input("Պատասխանը(ներմուծված համարով): ")) - 1
+            if answer < 0 or answer > len(questions[i]["answers"]):
+                raise ValueError
+            break
+        except ValueError:
+            print("Սխալ ներմուծում։")
 
     if answer == questions[i]["correct_answer"]:
         print("Ճիշտ է։")
@@ -55,7 +66,7 @@ for i in range(len(questions)):
         print("Սխալ է։")
 
 time.sleep(1)
-print("\nԽաղը ավարտվեց։")
+print("\nԽաղն ավարտվեց։")
 time.sleep(1)
 print(f"{team1}-ի հաշիվը: {team1_score}")
 print(f"{team2}-ի հաշիվը: {team2_score}")
@@ -65,4 +76,4 @@ if team1_score > team2_score:
 elif team1_score < team2_score:
     print(f"Հաղթեց։ {team2}-ը")
 
-print("\nՇնորհակալություն խաղում մասնակցողներին։")
+print("\nՇնորհակալություն խաղի մասնակիցներին։")
