@@ -41,7 +41,8 @@ team1_score = 0
 team2_score = 0
 
 for i in range(len(questions)):
-    print(f"\n{i+1}. Հարց")
+    curr_team = team2 if (i % 2) else team1;
+    print(f"\n{i+1}. Հարց -> {curr_team}")
     print(questions[i]["question"])
 
     for ans_i in range(len(questions[i]["answers"])):
