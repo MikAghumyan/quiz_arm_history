@@ -37,7 +37,7 @@ team2-ի հաշիվը: 0
 
 ## Custom Questions Lists
 
-You can add your custom questions in your <questions_name>.json file in this format
+You can add your custom questions in your _<questions_name>.json_ file in this format
 
 ```json
 [
@@ -53,3 +53,5 @@ You can add your custom questions in your <questions_name>.json file in this for
   }
 ]
 ```
+
+You can use it with giving as an argument like `python3 main.py <questions_name>.json>`
