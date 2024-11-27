@@ -1,8 +1,18 @@
 import time
 import json
+import sys
 
-with open('/home/mika/quiz_arm_history/questions.json', 'r', encoding='utf-8') as file:
-    questions = json.load(file)
+questions_filename = 'questions.json'
+
+if len(sys.argv) == 2:
+    questions_filename = sys.argv[1]
+
+try:
+    with open(f"/home/mika/quiz_arm_history/{questions_filename}", 'r', encoding='utf-8') as file:
+        questions = json.load(file)
+except FileNotFoundError:
+    print("Չհաջողվեց բեռնել հարցերը։")
+    sys.exit(1)
 
 print("""
 *********** ՀԱՅՈՑ ՊԱՏՄՈՒԹՅՈՒՆ ***********
@@ -12,9 +22,9 @@ print("""
 time.sleep(1)
 print("- Խաղում ընդգրկվում են 2 թիմեր։")
 time.sleep(1)
-print("- Ընդհանուր կա 20 հարց։")
+print(f"- Ընդհանուր կա {len(questions)} հարց։")
 time.sleep(1)
-print("- Յուրաքանչյուր թիմին տրվում է 10-ական հարց։")
+print(f"- Յուրաքանչյուր թիմին տրվում է {len(questions)/2}-ական հարց։")
 time.sleep(1)
 print("Սեղմեք Enter սկսելու համար։")
 input()
