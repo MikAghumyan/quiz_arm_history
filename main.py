@@ -1,7 +1,7 @@
 import time
 import json
 
-with open('/home/mika/quiz_arm_history/questions_elen.json', 'r', encoding='utf-8') as file:
+with open('/home/mika/quiz_arm_history/questions.json', 'r', encoding='utf-8') as file:
     questions = json.load(file)
 
 print("""
